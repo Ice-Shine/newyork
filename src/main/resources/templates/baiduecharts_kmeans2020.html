@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>带路线的百度地图(聚类后)</title>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=0NI86a98fypRqxZppPVu0E846hU21NXa"></script>
+    <script src="js/bmap.js"></script>
+    <style>
+        .mainwindow{
+            height: 100%;
+        }
+
+        .mapwindow{
+            height: 100%;
+            width: 100%;
+
+            float: left;
+        }
+        html{height:100%}
+        body{height:100%;margin:0px;padding:0px}
+        #container{height:100%}
+    </style>
+</head>
+
+<body>
+<div id="main" class="mainwindow">
+    <div id="map" class="mapwindow"></div>
+</div>
+</body>
+
+<script src="js/baiduecharts_kmeans2020.js"></script>
+</html>
