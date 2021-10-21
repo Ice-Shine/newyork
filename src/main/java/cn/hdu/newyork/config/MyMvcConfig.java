@@ -18,6 +18,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/baiduecharts_kmeans").setViewName("baiduecharts_kmeans");
         registry.addViewController("/baiduecharts_kmeans2020").setViewName("baiduecharts_kmeans2020");
         registry.addViewController("/demo1").setViewName("demo1");
+        registry.addViewController("/render").setViewName("render");
 
     }
 

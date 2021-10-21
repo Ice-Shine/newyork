@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>纽约公共自行车数据分析</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/moment.js/2.18.1/moment-with-locales.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+
+</head>
+<body>
+<div style="float: none;background-color: #66CCCC" class="panel panel-default">
+    <div class="panel-body">
+        <h4 style="float: left ;color: white">纽约公共自行车数据分析</h4>
+
+        <div class="dropdown" style="float: left;margin-left: 50px;margin-top: 10px">
+            <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">借出情况
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">归还情况</a>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">站点分析</a>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">用户特点</a>
+                </li>
+            </ul>
+        </div>
+        <div  class="row">
+            <div  style="margin-left: 30px" class="col-sm-2">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <label style="color: white;" class="form-inline">选择日期：</label>
+                        <div style="" class="input-group date" id='date1'>
+                            <input type="text" class="form-control">
+                            <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="d0a4bb8be35841c28cd5b46eabf60ef3" class="chart-container"
+     style="width:900px; height:500px; float: left;left: 10%"></div>
+<div>
+    <ul style="float: left;margin-left: 200px">
+        <li>2019/03</li>
+        <li id="1"><a href="#">1</a></li>
+        <li id="2"><a href="#">2</a></li>
+        <li id="3"><a href="#">3</a></li>
+        <li id="4"><a href="#">4</a></li>
+        <li id="5"><a href="#">5</a></li>
+        <li id="6"><a href="#">6</a></li>
+        <li id="7"><a href="#">7</a></li>
+        <li id="8"><a href="#">8</a></li>
+        <li id="9"><a href="#">9</a></li>
+        <li id="10"><a href="#">10</a></li>
+        <li id="11"><a href="#">11</a></li>
+        <li id="12"><a href="#">12</a></li>
+    </ul>
+    <ul style="float: left;margin-left: 50px">
+        <li>2020/03</li>
+        <li id="1."><a href="#">1</a></li>
+        <li id="2."><a href="#">2</a></li>
+        <li id="3."><a href="#">3</a></li>
+        <li id="4."><a href="#">4</a></li>
+        <li id="5."><a href="#">5</a></li>
+        <li id="6."><a href="#">6</a></li>
+        <li id="7."><a href="#">7</a></li>
+        <li id="8."><a href="#">8</a></li>
+        <li id="9."><a href="#">9</a></li>
+        <li id="10."><a href="#">10</a></li>
+        <li id="11."><a href="#">11</a></li>
+        <li id="12."><a href="#">12</a></li>
+    </ul>
+</div>
+<script src="js/render.js"></script>
+</body>
+</html>
