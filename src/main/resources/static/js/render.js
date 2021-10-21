@@ -7870,6 +7870,12 @@ var option_d0a4bb8be35841c28cd5b46eabf60ef3 = {
     ],
     "legend": [
         {
+            type: 'scroll',
+            orient: 'vertical',
+            align:'auto',
+            right: -40,
+            top: 20,
+            bottom: 20,
             "data": [
                 "2020.3.1\u501f\u51fa\u60c5\u51b5",
                 "2020.3.2\u501f\u51fa\u60c5\u51b5",
@@ -7999,7 +8005,7 @@ var option_d0a4bb8be35841c28cd5b46eabf60ef3 = {
                 "2019.3.31\u501f\u51fa\u60c5\u51b5": true
             },
             "X": "left",
-            "show": false,
+            "show": true,
             "padding": 5,
             "itemGap": 10,
             "itemWidth": 25,
