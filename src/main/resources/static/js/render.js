@@ -27,6 +27,18 @@ $(function () {
     });
 
    // console.log(kal.getSelected());//获取选中的日期
+    document.getElementById("clear").addEventListener('click', function () {
+        for(var i = 1;i<=31;i++){
+            var strq = "2020.3."+i+"\u501f\u51fa\u60c5\u51b5";
+            option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[strq]=false;
+        }
+        for(var i = 1;i<=31;i++){
+            var strq = "2019.3."+i+"\u501f\u51fa\u60c5\u51b5";
+            option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[strq]=false;
+        }
+        chart_d0a4bb8be35841c28cd5b46eabf60ef3.setOption(option_d0a4bb8be35841c28cd5b46eabf60ef3);
+        kal.removeAllSelected();
+    })
 
 });
 
@@ -8027,7 +8039,7 @@ var option_d0a4bb8be35841c28cd5b46eabf60ef3 = {
                 "2019.3.28\u501f\u51fa\u60c5\u51b5": false,
                 "2019.3.29\u501f\u51fa\u60c5\u51b5": false,
                 "2019.3.30\u501f\u51fa\u60c5\u51b5": false,
-                "2019.3.31\u501f\u51fa\u60c5\u51b5": true
+                "2019.3.31\u501f\u51fa\u60c5\u51b5": false
             },
             "X": "left",
             "show": true,
