@@ -12,7 +12,9 @@
           rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <link rel="stylesheet" href="/js/build/kalendae.css" type="text/css" charset="utf-8">
 
+    <script src="/js/build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <div style="float: none;background-color: #66CCCC" class="panel panel-default">
@@ -37,7 +39,25 @@
                 </li>
             </ul>
         </div>
-        <div  class="row">
+       <!-- <script type="text/javascript" charset="utf-8">
+            new Kalendae(document.body, {
+                months:1,
+                mode:'multiple',
+                selected:[Kalendae.moment().subtract({M:1}), Kalendae.moment().add({M:1})]
+            });
+
+            new Kalendae({
+                attachTo:document.body,
+                months:1,
+                mode:'multiple',
+                selected:[Kalendae.moment().subtract({M:1}), Kalendae.moment().add({M:1})]
+            });
+
+
+
+        </script>-->
+
+        <!--<div  class="row">
             <div  style="margin-left: 30px" class="col-sm-2">
                 <form class="form-inline" role="form">
                     <div class="form-group">
@@ -51,44 +71,48 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div>-->
 
     </div>
 </div>
-<div id="d0a4bb8be35841c28cd5b46eabf60ef3" class="chart-container"
+<div id="d0a4bb8be35841c28cd5b46eabf60ef3" class="chart-container "
      style="width:1000px; height:500px; float: left;left: 10%"></div>
-<div>
-    <ul style="float: left;margin-left: 200px">
-        <li>2019/03</li>
-        <li id="1"><a href="#">1</a></li>
-        <li id="2"><a href="#">2</a></li>
-        <li id="3"><a href="#">3</a></li>
-        <li id="4"><a href="#">4</a></li>
-        <li id="5"><a href="#">5</a></li>
-        <li id="6"><a href="#">6</a></li>
-        <li id="7"><a href="#">7</a></li>
-        <li id="8"><a href="#">8</a></li>
-        <li id="9"><a href="#">9</a></li>
-        <li id="10"><a href="#">10</a></li>
-        <li id="11"><a href="#">11</a></li>
-        <li id="12"><a href="#">12</a></li>
-    </ul>
-    <ul style="float: left;margin-left: 50px">
-        <li>2020/03</li>
-        <li id="1."><a href="#">1</a></li>
-        <li id="2."><a href="#">2</a></li>
-        <li id="3."><a href="#">3</a></li>
-        <li id="4."><a href="#">4</a></li>
-        <li id="5."><a href="#">5</a></li>
-        <li id="6."><a href="#">6</a></li>
-        <li id="7."><a href="#">7</a></li>
-        <li id="8."><a href="#">8</a></li>
-        <li id="9."><a href="#">9</a></li>
-        <li id="10."><a href="#">10</a></li>
-        <li id="11."><a href="#">11</a></li>
-        <li id="12."><a href="#">12</a></li>
-    </ul>
+<div  style="float: left;margin-left: 200px">
+    <p>请选择需要显示的日期（2019.3/2020.3）</p>
+    <div id="datepk"></div>
 </div>
+<!--<div>-->
+<!--    <ul style="float: left;margin-left: 200px">-->
+<!--        <li>2019/03</li>-->
+<!--        <li id="1"><a href="#">1</a></li>-->
+<!--        <li id="2"><a href="#">2</a></li>-->
+<!--        <li id="3"><a href="#">3</a></li>-->
+<!--        <li id="4"><a href="#">4</a></li>-->
+<!--        <li id="5"><a href="#">5</a></li>-->
+<!--        <li id="6"><a href="#">6</a></li>-->
+<!--        <li id="7"><a href="#">7</a></li>-->
+<!--        <li id="8"><a href="#">8</a></li>-->
+<!--        <li id="9"><a href="#">9</a></li>-->
+<!--        <li id="10"><a href="#">10</a></li>-->
+<!--        <li id="11"><a href="#">11</a></li>-->
+<!--        <li id="12"><a href="#">12</a></li>-->
+<!--    </ul>-->
+<!--    <ul style="float: left;margin-left: 50px">-->
+<!--        <li>2020/03</li>-->
+<!--        <li id="1."><a href="#">1</a></li>-->
+<!--        <li id="2."><a href="#">2</a></li>-->
+<!--        <li id="3."><a href="#">3</a></li>-->
+<!--        <li id="4."><a href="#">4</a></li>-->
+<!--        <li id="5."><a href="#">5</a></li>-->
+<!--        <li id="6."><a href="#">6</a></li>-->
+<!--        <li id="7."><a href="#">7</a></li>-->
+<!--        <li id="8."><a href="#">8</a></li>-->
+<!--        <li id="9."><a href="#">9</a></li>-->
+<!--        <li id="10."><a href="#">10</a></li>-->
+<!--        <li id="11."><a href="#">11</a></li>-->
+<!--        <li id="12."><a href="#">12</a></li>-->
+<!--    </ul>-->
+<!--</div>-->
 <script src="js/render.js"></script>
 </body>
 </html>

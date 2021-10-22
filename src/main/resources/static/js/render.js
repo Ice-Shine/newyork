@@ -5,18 +5,43 @@ $(function () {
         locale: moment.locale('zh-cn')
     });
 });
-for (let i = 1; i < 12; i++) {
 
-    document.getElementById(i).addEventListener('click', function () {
-        var str = "2020.3."+i+"\u501f\u51fa\u60c5\u51b5";
-        if(option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[str])  option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[str]=false;
-        else{
-            option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[str]=true;
-        }
-        chart_d0a4bb8be35841c28cd5b46eabf60ef3.setOption(option_d0a4bb8be35841c28cd5b46eabf60ef3);
-        console.log(option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected);
-    })
-}
+$(function () {
+    var kal = new Kalendae(document.getElementById("datepk"), {
+        months: 1,
+        mode: 'multiple',
+        dayHeaderClickable: true,
+        subscribe: {
+            'date-clicked': function (date) {
+                var arr = date._i.split("-");
+                var str = arr[0]+"."+parseInt(arr[1])+"."+parseInt(arr[2])+"\u501f\u51fa\u60c5\u51b5";
+                if(option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[str])  option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[str]=false;
+                else{
+                    option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[str]=true;
+                 }
+                chart_d0a4bb8be35841c28cd5b46eabf60ef3.setOption(option_d0a4bb8be35841c28cd5b46eabf60ef3);
+                console.log(option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected);
+            }
+        },
+        viewStartDate:"2020-03-01"
+    });
+
+   // console.log(kal.getSelected());//获取选中的日期
+
+});
+
+// for (let i = 1; i < 12; i++) {
+//
+//     document.getElementById(i).addEventListener('click', function () {
+//         var str = "2020.3."+i+"\u501f\u51fa\u60c5\u51b5";
+//         if(option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[str])  option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[str]=false;
+//         else{
+//             option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected[str]=true;
+//         }
+//         chart_d0a4bb8be35841c28cd5b46eabf60ef3.setOption(option_d0a4bb8be35841c28cd5b46eabf60ef3);
+//         console.log(option_d0a4bb8be35841c28cd5b46eabf60ef3.legend[0].selected);
+//     })
+// }
 var chart_d0a4bb8be35841c28cd5b46eabf60ef3 = echarts.init(
     document.getElementById('d0a4bb8be35841c28cd5b46eabf60ef3'), 'white', {renderer: 'canvas'});
 var option_d0a4bb8be35841c28cd5b46eabf60ef3 = {
