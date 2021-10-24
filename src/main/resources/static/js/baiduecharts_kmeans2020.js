@@ -884,7 +884,21 @@ var linesmax=[
 	{fromName: "",toName: "",coords:[[ -73.9792104039538 , 40.752159340690405 ], [ -73.99053182836046 , 40.7518845804681 ]]},
 
 ];
+$("button").click(function(){
+	$.post("map", {
+		year:2020,
+		month:3,
+		day:3
+	},function (data) {
+		alert(data);
+		console.log(option.series[1].data);
 
+		option.series[1].data=data;//1是普通线2是最多线
+		console.log(data);
+		console.log(linesmax);
+		myChart.setOption(option);
+	});
+});
 var points=[];
 get(points,-73.98230476981684,40.76347635651954,"[ 40.76347636 -73.98230477]");
 get(points,-73.9773230583853,40.66734927340482,"[ 40.66734927 -73.97732306]");
