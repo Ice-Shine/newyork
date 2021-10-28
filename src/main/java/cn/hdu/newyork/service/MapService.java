@@ -5,5 +5,5 @@ import cn.hdu.newyork.domain.Path;
 import java.util.List;
 
 public interface MapService {
-    List<Path> findAll(int year,int day);
+    List<Path> findAll(int year,int day,int num);
 }

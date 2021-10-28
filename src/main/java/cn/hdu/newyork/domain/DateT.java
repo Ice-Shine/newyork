@@ -4,11 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class DateT {
-    private Integer year;
-    private Integer month;
-    private Integer day;
+    private String date;
+    private Integer num;
 }

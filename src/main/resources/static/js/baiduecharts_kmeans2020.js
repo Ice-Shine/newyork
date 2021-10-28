@@ -884,11 +884,12 @@ var linesmax=[
 	{fromName: "",toName: "",coords:[[ -73.9792104039538 , 40.752159340690405 ], [ -73.99053182836046 , 40.7518845804681 ]]},
 
 ];
-$("#button").click(function(){
+/*$("#button").click(function(){
 	$.post("map", {
 		year:2020,
 		month:3,
-		day:3
+		day:1,
+		num:10
 	},function (data) {
 		console.log(option.series[1].data);
 
@@ -896,7 +897,34 @@ $("#button").click(function(){
 		console.log(data);
 		myChart.setOption(option);
 	});
-});
+});*/
+function getLines() {
+
+	$.ajax({
+		type: "POST",
+		dataType: "json",
+		url: "/map" ,
+		data: $('#form1').serialize(), //提交的数据
+		success: function (result) {
+			if(result==null){
+				alert("请输入正确的日期！");
+			}else{
+				console.log(option.series[1].data);
+
+				option.series[1].data=result;//1是普通线2是最多线
+				console.log(result);
+				myChart.setOption(option);
+			}
+
+
+		},
+		error : function() {
+			alert("请输入正确的日期！");
+		}
+	});
+
+	return false;
+}
 var points=[];
 get(points,-73.98230476981684,40.76347635651954,"[ 40.76347636 -73.98230477]");
 get(points,-73.9773230583853,40.66734927340482,"[ 40.66734927 -73.97732306]");
@@ -987,7 +1015,7 @@ var option = {
         // 百度地图中心经纬度 坐标拾取器http://api.map.baidu.com/lbsapi/getpoint/index.html
         center: [-73.98997825,40.72019576],
         // 百度地图缩放等级，数字越大，放大越大，地图比例尺越小
-        zoom: 15,
+        zoom: 14,
         // 是否开启拖拽缩放，可以只设置 'scale' 或者 'move'
         roam: true,
         // mapStyle是百度地图的自定义样式，见 http://developer.baidu.com/map/custom/
