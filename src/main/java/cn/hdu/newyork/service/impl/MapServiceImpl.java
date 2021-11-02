@@ -15,8 +15,7 @@ public class MapServiceImpl implements MapService {
     public List<Path> findAll(int year, int day,int num) {
         List<Path> list = new LinkedList<Path>();
 
-
-        //从文件中读取（暂时还没有加入日期选择）
+        //从csv中读取
         String line = "";
         String cvsSplitBy = ",";
         String filename = "src/main/resources/static/data/"+year+".3."+day+".csv";
