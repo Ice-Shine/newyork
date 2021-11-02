@@ -11,4 +11,5 @@ import java.util.List;
 @AllArgsConstructor
 public class Path {
     private List<List<Double>> coords;
+    private Integer value;
 }

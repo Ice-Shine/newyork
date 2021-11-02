@@ -740,13 +740,8 @@ var linesdata = [
 ];
 
 var linesmax=[
-	{fromName: "",toName: "",coords:[[ -73.9985976976806 , 40.72779030615824 ], [ -73.9985976976806 , 40.72779030615824 ]]},
-	{fromName: "",toName: "",coords:[[ -74.00860685820025 , 40.71910926820246 ], [ -74.00860685820025 , 40.71910926820246 ]]},
-	{fromName: "",toName: "",coords:[[ -73.9985976976806 , 40.72779030615824 ], [ -73.99017065485957 , 40.73401433582215 ]]},
-	{fromName: "",toName: "",coords:[[ -73.98074016005158 , 40.73253572858961 ], [ -73.99017065485957 , 40.73401433582215 ]]},
-	{fromName: "",toName: "",coords:[[ -73.99017065485957 , 40.73401433582215 ], [ -73.99017065485957 , 40.73401433582215 ]]},
-	{fromName: "",toName: "",coords:[[ -73.99017065485957 , 40.73401433582215 ], [ -73.9985976976806 , 40.72779030615824 ]]},
-	{fromName: "",toName: "",coords:[[ -73.99017065485957 , 40.73401433582215 ], [ -73.98074016005158 , 40.73253572858961 ]]},
+	[[ -73.9985976976806 , 41.72779030615824 ], [ -73.9985976976804 , 40.72779030615824 ],2],
+	[[ -72.9985976976806 , 40.72779030615824 ], [ -73.9985976976804 , 40.72779030615824 ],20]
 
 ];
 
@@ -991,6 +986,22 @@ var option = {
             ]
         }
     },
+    visualMap: {
+        pieces: [      // 自定义每一段的范围，以及每一段的文字
+            { gte: 19, label: '20以上'}, // 不指定 max，表示 max 为无限大（Infinity）。
+            { gte: 6, lte: 18, label: '15-20人'},
+            { gte: 3, lte: 6, label: '10-15人'},
+            { lte: 2, label: '1-9人'}          // 不指定 min，表示 min 为无限大（-Infinity）。
+        ],
+        seriesIndex:2,//指定series里的哪个数据
+        dimension:2,//找数据的维度
+        inRange: {
+            // 渐变颜色，从小到大
+            color: ['#ce19da', '#1fe81f', '#1c67ef', '#ef0d18']
+        },
+        zlevel:2
+    },
+
     "title": [
         {
             "text": "纽约自行车租还情况图",
@@ -1037,33 +1048,33 @@ var option = {
 			}
 		},
     	{
-        name: "2019-3",
-        type: 'lines',
-        coordinateSystem: 'bmap',
-        zlevel: 2,
-        effect: {
-            show: true,
-            period: 6,
-            trailLength: 0,
-            symbol: 'arrow',
-            symbolSize: 10,
-            constantSpeed: 0,
+            name: "2019-3",
+            type: 'lines',
+            coordinateSystem: 'bmap',
+            zlevel: 2,
+            effect: {
+                show: true,
+                period: 6,
+                trailLength: 0,
+                symbol: 'arrow',
+                symbolSize: 10,
+                constantSpeed: 0,
 
-        },
-        "symbol": [
-            "none",
+            },
+            "symbol": [
+                "none",
 
-        ],
-        lineStyle: {
-            normal: {
-                color: "#a6c84c",
-                width: 2,
-                opacity: 0.6,
-                curveness: 0.2
-            }
-        },
-        //将手动做的一个迁徙数据放入线条的数据部分。
-        data: linesdata
+            ],
+            lineStyle: {
+                normal: {
+                    color: "#a6c84c",
+                    width: 2,
+                    opacity: 0.6,
+                    curveness: 0.2
+                }
+            },
+            //将手动做的一个迁徙数据放入线条的数据部分。
+            data: linesdata
     	},
 		{
 			name: "2019-3max",
@@ -1150,7 +1161,7 @@ if (document.createElement('canvas').getContext) {  // 判断当前浏览器是�
     });
     bmap.addOverlay(pointCollection);  // 添加Overlay
     myChart.on('click', function (params) {
-        console.log(params);
+        console.log(option.series[2].data);
         alert('从'+params.data.fromName+'去'+params.data.toName);
     });
 } else {

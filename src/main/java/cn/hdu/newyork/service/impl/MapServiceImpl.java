@@ -34,7 +34,7 @@ public class MapServiceImpl implements MapService {
                     path2.add(Double.parseDouble(country[3]));
                     coords.add(path);
                     coords.add(path2);
-                    Path path1 = new Path(coords);
+                    Path path1 = new Path(coords,Integer.parseInt(country[4]));
                     list.add(path1);
                 }
 

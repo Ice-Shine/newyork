@@ -292,6 +292,22 @@ var option = {
             "itemGap": 10
         }
     ],
+    visualMap: {
+        pieces: [      // 自定义每一段的范围，以及每一段的文字
+            { min: 20, label: '20以上'}, // 不指定 max，表示 max 为无限大（Infinity）。
+            { min: 10, max: 20, label: '10-20'},
+            { min: 3, max: 10, label: '3-10'},
+            { max: 3, label: '3以下'}          // 不指定 min，表示 min 为无限大（-Infinity）。
+        ],
+        seriesIndex:1,//指定series里的哪个数据
+        //dimension:3,//找数据的维度
+        inRange: {
+            // 渐变颜色，从小到大
+            color: ['#dacfa5', '#e8cc32', '#ef9930', '#ef0002']
+        },
+        zlevel:2,
+        padding:50,
+    },
     "legend": [
         {
             "data": [
@@ -447,7 +463,7 @@ if (document.createElement('canvas').getContext) {  // 判断当前浏览器是�
     bmap.addOverlay(pointCollection);  // 添加Overlay
     myChart.on('click', function (params) {
         console.log(params);
-        alert('从'+params.data.fromName+'去'+params.data.toName);
+        alert('数量是：'+params.data.value);
     });
 } else {
     alert('请在chrome、safari、IE8+以上浏览器查看本示例');
