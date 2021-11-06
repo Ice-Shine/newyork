@@ -1,5 +1,5 @@
 //初始化echarts,并和框体map绑定。
-var myChart = echarts.init(document.getElementById('map'));
+var myChart2 = echarts.init(document.getElementById('map2'));
 
 //手工写入的一个迁徙线的数据，正常项目中应该是由AJAX或其他方式来获取数据。
 var linesdata = [];
@@ -18,23 +18,23 @@ var linesmax=[];
 		myChart.setOption(option);
 	});
 });*/
-function getLines() {
+function getLines2() {
 
 	$.ajax({
 		type: "POST",
 		dataType: "json",
 		url: "/map" ,
-		data: $('#form1').serialize(), //提交的数据
-		success: function (result) {
+		data: $('#form2').serialize(), //提交的数据
+		success: function (result) {//返回一个path和一个points
 			if(result==null){
 				alert("请输入正确的日期！");
 			}else{
-				console.log(option.series[1].data);
+                console.log(option.series[1].data);
 
-				option.series[1].data=result.path;//1是普通线2是最多线
+                option.series[1].data=result.path;//1是普通线2是最多线
                 option.series[0].data=result.points;
-				console.log(result.points);
-				myChart.setOption(option);
+                console.log(result.points);
+                myChart2.setOption(option);
 			}
 
 
@@ -47,6 +47,7 @@ function getLines() {
 	return false;
 }
 var points=[];
+
 
 
 
@@ -357,9 +358,9 @@ var option = {
 };
 
 //配置参数传入图形实例中
-myChart.setOption(option);
+myChart2.setOption(option);
 //初始化bmap和echarts实例绑定
-var bmap = myChart.getModel().getComponent('bmap').getBMap();
+var bmap = myChart2.getModel().getComponent('bmap').getBMap();
 bmap.addControl(new BMap.MapTypeControl());
 
 if (document.createElement('canvas').getContext) {  // 判断当前浏览器是否支持绘制海量点
@@ -386,7 +387,7 @@ if (document.createElement('canvas').getContext) {  // 判断当前浏览器是�
       //  alert('单击点的坐标为：' + e.point.lng + ',' + e.point.lat);  // 监听点击事件
     });
     bmap.addOverlay(pointCollection);  // 添加Overlay
-    myChart.on('click', function (params) {
+    myChart2.on('click', function (params) {
         console.log(params);
         alert('数量是：'+params.data.value);
     });
