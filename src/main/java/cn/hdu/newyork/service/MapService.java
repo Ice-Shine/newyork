@@ -9,4 +9,6 @@ public interface MapService {
     List<Path> findAllPath(int year,int day,int num);
 
     List<Point> findAllPoint(int year,int month);
+
+    List<Point> findSelfPoint(int year,int month,int day);
 }

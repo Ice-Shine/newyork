@@ -18,34 +18,7 @@ var linesmax=[];
 		myChart.setOption(option);
 	});
 });*/
-function getLines() {
 
-	$.ajax({
-		type: "POST",
-		dataType: "json",
-		url: "/map" ,
-		data: $('#form1').serialize(), //提交的数据
-		success: function (result) {
-			if(result==null){
-				alert("请输入正确的日期！");
-			}else{
-				console.log(option.series[1].data);
-
-				option.series[1].data=result.path;//1是普通线2是最多线
-                option.series[0].data=result.points;
-				console.log(result.points);
-				myChart.setOption(option);
-			}
-
-
-		},
-		error : function() {
-			alert("请输入正确的日期！");
-		}
-	});
-
-	return false;
-}
 var points=[];
 
 
@@ -254,7 +227,7 @@ var option = {
 			type: 'scatter',
 			coordinateSystem: 'bmap',
 			data: points,
-			symbolSize: 10,
+
 			encode: {
 				value: 2
 			},
@@ -399,4 +372,34 @@ function get(points,lng,lat,title) {
 		name:title,
 		value:[lng,lat]
 	});
+}
+
+function getLines() {
+    var that = this;
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/map" ,
+        data: $('#form1').serialize(), //提交的数据
+        success: function (result) {
+            if(result==null){
+                alert("请输入正确的日期！");
+            }else{
+                console.log(that.option.series);
+                option.series[1].data=result.path;//1是普通线2是最多线
+                option.series[0].data=result.points;
+                console.log(result.points);
+                myChart.setOption(option);
+                console.log(option.series);
+            }
+
+
+        },
+        error : function() {
+            alert("请输入正确的日期！");
+        }
+    });
+
+    return false;
 }

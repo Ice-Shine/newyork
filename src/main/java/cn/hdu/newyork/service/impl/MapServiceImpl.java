@@ -63,7 +63,34 @@ public class MapServiceImpl implements MapService {
                 List<Double> locate = new LinkedList<Double>();
                 locate.add(Double.parseDouble(country[1]));
                 locate.add(Double.parseDouble(country[0]));
-                Point point = new Point(country[1]+","+country[0],locate);
+                Point point = new Point(country[1]+","+country[0],locate,10);
+                points.add(point);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(points);
+        return points;
+    }
+
+    @Override
+    public List<Point> findSelfPoint(int year, int month, int day) {
+        List<Point> points = new ArrayList<Point>();
+        String line = "";
+        String csvSplitBy = ",";
+        String filename = "src/main/resources/static/data/get"+year+"."+month+"."+day+".csv";
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+
+            while ((line = br.readLine()) != null) {
+                // 按照js文件格式要求储存
+                String[] country = line.split(csvSplitBy);
+                List<Double> locate = new LinkedList<Double>();
+                locate.add(Double.parseDouble(country[0]));
+                locate.add(Double.parseDouble(country[1]));//这两个顺序可能会存在问题
+
+                Point point = new Point(country[1]+","+country[0]+","+country[2],locate,Integer.parseInt(country[2])*2);
+                System.out.println(country[2]);
                 points.add(point);
             }
 

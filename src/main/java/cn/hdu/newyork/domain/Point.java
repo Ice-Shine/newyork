@@ -11,5 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 public class Point {
     String name;
-    List<Double> value;//包含两个double,第一位是lng,第二位是lat
+    List<Double> value;//包含两个double,第一位是lng,第二位是lat,第三位是这个点自流量的值
+    Integer symbolSize;//自流量的值
 }

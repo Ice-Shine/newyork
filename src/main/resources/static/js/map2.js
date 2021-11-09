@@ -19,7 +19,7 @@ var linesmax=[];
 	});
 });*/
 function getLines2() {
-
+    console.log(option2.series);
 	$.ajax({
 		type: "POST",
 		dataType: "json",
@@ -29,12 +29,12 @@ function getLines2() {
 			if(result==null){
 				alert("请输入正确的日期！");
 			}else{
-                console.log(option.series[1].data);
+                console.log(option2.series[1].data);
 
-                option.series[1].data=result.path;//1是普通线2是最多线
-                option.series[0].data=result.points;
+                option2.series[1].data=result.path;//1是普通线2是最多线
+                option2.series[0].data=result.points;
                 console.log(result.points);
-                myChart2.setOption(option);
+                myChart2.setOption(option2);
 			}
 
 
@@ -52,7 +52,7 @@ var points=[];
 
 
 //echarts中使用地图的配置参数
-var option = {
+var option2 = {
     bmap: {
         // 百度地图中心经纬度 坐标拾取器http://api.map.baidu.com/lbsapi/getpoint/index.html
         center: [-73.97999825,40.72219576],
@@ -358,7 +358,7 @@ var option = {
 };
 
 //配置参数传入图形实例中
-myChart2.setOption(option);
+myChart2.setOption(option2);
 //初始化bmap和echarts实例绑定
 var bmap = myChart2.getModel().getComponent('bmap').getBMap();
 bmap.addControl(new BMap.MapTypeControl());
