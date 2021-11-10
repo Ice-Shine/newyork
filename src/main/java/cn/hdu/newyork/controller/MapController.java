@@ -26,8 +26,8 @@ public class MapController {
         List<Path> pathAll = mapService.findAllPath(Integer.parseInt(split[0]),Integer.parseInt(split[2]),t_date.getNum());
         System.out.println(pathAll);
         System.out.println("in");
-        //List<Point> points = mapService.findAllPoint(Integer.parseInt(split[0]),Integer.parseInt(split[1]));
-        List<Point> points = mapService.findSelfPoint(Integer.parseInt(split[0]),Integer.parseInt(split[1]),Integer.parseInt(split[2]));
+        List<Point> points = mapService.findAllPoint(Integer.parseInt(split[0]),Integer.parseInt(split[1]));
+        //List<Point> points = mapService.findSelfPoint(Integer.parseInt(split[0]),Integer.parseInt(split[1]),Integer.parseInt(split[2]));
         MapInfo info = new MapInfo();
         info.setPath(pathAll);
         info.setPoints(points);

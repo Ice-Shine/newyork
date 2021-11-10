@@ -188,7 +188,7 @@ var option = {
     visualMap: {
         type: 'continuous',
         min:0,                                  //指定 visualMapContinuous 组件的允许的最小值
-        max:20,
+        max:15,
         /*pieces: [      // 自定义每一段的范围，以及每一段的文字
             { min: 10, label: '10以上'}, // 不指定 max，表示 max 为无限大（Infinity）。
             { min: 5, max: 10, label: '5-10'},
@@ -227,8 +227,9 @@ var option = {
 			type: 'scatter',
 			coordinateSystem: 'bmap',
 			data: points,
+            symbolSize: 10,
 
-			encode: {
+            encode: {
 				value: 2
 			},
 			zlevel: 3,
@@ -248,6 +249,13 @@ var option = {
             type: 'lines',
             coordinateSystem: 'bmap',
             zlevel: 2,
+            lineStyle: {
+                normal: {
+                    width: 2,
+                    opacity: 0.6,
+                    curveness: 0.2
+                }
+            },
             effect: {
                 show: false,
                 period: 6,
@@ -262,14 +270,14 @@ var option = {
             "arrow"
 
         ],
-        lineStyle: {
+        /*lineStyle: {
             normal: {
                 color: "#a6c84c",
                 width: 2,
                 opacity: 0.6,
                 curveness: 0.2
             }
-        },
+        },*/
         //将手动做的一个迁徙数据放入线条的数据部分。
         data: linesdata
     },
