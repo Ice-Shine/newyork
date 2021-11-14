@@ -33,6 +33,8 @@ function getLines2() {
 
                 option2.series[1].data=result.path;//1是普通线2是最多线
                 option2.series[0].data=result.points;
+                option2.series[3].data=result.points_num;
+
                 console.log(result.points);
                 myChart2.setOption(option2);
 			}
@@ -260,6 +262,7 @@ var option2 = {
 				value: 2
 			},
 			zlevel: 3,
+            color:"blue",
 			label: {
 				formatter: '{b}',
 				position: 'right',
@@ -329,7 +332,29 @@ var option2 = {
 			},
 			//将手动做的一个迁徙数据放入线条的数据部分。
 			data: linesmax
-		}
+		},
+        {
+            name: 'selfpoint',
+            type: 'scatter',
+            coordinateSystem: 'bmap',
+            data: points,
+            symbolSize: 50,
+            color:"red",
+            encode: {
+                value: 2
+            },
+            zlevel: 2,
+            label: {
+                formatter: '{b}',
+                position: 'right',
+                show: false
+            },
+            emphasis: {
+                label: {
+                    show: true
+                }
+            }
+        }
 
 	],
     "tooltip": {
