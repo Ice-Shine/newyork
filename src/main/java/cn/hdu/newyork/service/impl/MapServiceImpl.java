@@ -100,4 +100,31 @@ public class MapServiceImpl implements MapService {
         System.out.println(points);
         return points;
     }
+
+    @Override
+    public int getMaxCount(int year, int month, int day) {
+        List<Path> list = new LinkedList<Path>();
+
+        //从csv中读取
+        String line = "";
+        String csvSplitBy = ",";
+        String filename = "src/main/resources/static/data/"+year+".3."+day+".csv";
+        int max = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+
+            while ((line = br.readLine()) != null) {
+
+                String[] country = line.split(csvSplitBy);
+                if(Integer.parseInt(country[4])>max){
+                    max = Integer.parseInt(country[4]);
+                }
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return max;
+    }
 }

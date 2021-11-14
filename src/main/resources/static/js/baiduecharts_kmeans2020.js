@@ -189,7 +189,8 @@ var option = {
         {
             type: 'continuous',
             min:0,                                  //指定 visualMapContinuous 组件的允许的最小值
-            max:15,
+            max:20,
+
             /*pieces: [      // 自定义每一段的范围，以及每一段的文字
                 { min: 10, label: '10以上'}, // 不指定 max，表示 max 为无限大（Infinity）。
                 { min: 5, max: 10, label: '5-10'},
@@ -320,7 +321,7 @@ var option = {
             coordinateSystem: 'bmap',
             data: points,
             symbolSize: 50,
-            color:"red",
+            color:"#ef0d49",
             encode: {
                 value: 2
             },
@@ -424,6 +425,7 @@ function getLines() {
                 option.series[1].data=result.path;//1是普通线2是最多线
                 option.series[0].data=result.points;
                 option.series[3].data=result.points_num;
+                option.visualMap[0].max=result.max;
                 console.log(result.points);
                 myChart.setOption(option);
                 console.log(option.series);

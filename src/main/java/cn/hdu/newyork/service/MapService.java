@@ -11,4 +11,6 @@ public interface MapService {
     List<Point> findAllPoint(int year,int month);
 
     List<Point> findSelfPoint(int year,int month,int day);
+
+    int getMaxCount(int year,int month,int day);
 }

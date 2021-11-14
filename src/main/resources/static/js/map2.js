@@ -29,13 +29,14 @@ function getLines2() {
 			if(result==null){
 				alert("请输入正确的日期！");
 			}else{
-                console.log(option2.series[1].data);
+               // console.log(option2.series[1].data);
 
                 option2.series[1].data=result.path;//1是普通线2是最多线
                 option2.series[0].data=result.points;
                 option2.series[3].data=result.points_num;
+                option2.visualMap[0].max=result.max;
 
-                console.log(result.points);
+                console.log(result);
                 myChart2.setOption(option2);
 			}
 
@@ -215,26 +216,28 @@ var option2 = {
             "itemGap": 10
         }
     ],
-    visualMap: {
-        type: 'continuous',
-        min:0,                                  //指定 visualMapContinuous 组件的允许的最小值
-        max:15,
-        /*pieces: [      // 自定义每一段的范围，以及每一段的文字
-            { min: 10, label: '10以上'}, // 不指定 max，表示 max 为无限大（Infinity）。
-            { min: 5, max: 10, label: '5-10'},
-            { min: 3, max: 5, label: '3-5'},
-            { max: 3, label: '3以下'}          // 不指定 min，表示 min 为无限大（-Infinity）。
-        ],*/
-        seriesIndex:1,//指定series里的哪个数据
-        //dimension:3,//找数据的维度
-        inRange: {
-            // 渐变颜色，从小到大
-            //color: ['#dacfa5', '#e8cc32', '#ef9930', '#ef0002']
-            color: ['#6ab92c', '#aed606', '#fef804','#ff7b00','#db253e','#5b1875']
+    visualMap: [
+        {
+            type: 'continuous',
+            min:0,                                  //指定 visualMapContinuous 组件的允许的最小值
+            max:15,
+            /*pieces: [      // 自定义每一段的范围，以及每一段的文字
+                { min: 10, label: '10以上'}, // 不指定 max，表示 max 为无限大（Infinity）。
+                { min: 5, max: 10, label: '5-10'},
+                { min: 3, max: 5, label: '3-5'},
+                { max: 3, label: '3以下'}          // 不指定 min，表示 min 为无限大（-Infinity）。
+            ],*/
+            seriesIndex:1,//指定series里的哪个数据
+            //dimension:3,//找数据的维度
+            inRange: {
+                // 渐变颜色，从小到大
+                //color: ['#dacfa5', '#e8cc32', '#ef9930', '#ef0002']
+                color: ['#6ab92c', '#aed606', '#fef804','#ff7b00','#db253e','#5b1875']
+            },
+            zlevel:2,
+            padding:50,
         },
-        zlevel:2,
-        padding:50,
-    },
+    ],
     "legend": [
         {
             "data": [

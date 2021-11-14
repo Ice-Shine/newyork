@@ -24,14 +24,14 @@ public class MapController {
         String[] split = t_date.getDate().split("-");
         if(!("03".equals(split[1]))||!("2020".equals(split[0])||"2019".equals(split[0]))||t_date.getNum()==null) return null;
         List<Path> pathAll = mapService.findAllPath(Integer.parseInt(split[0]),Integer.parseInt(split[2]),t_date.getNum());
-        System.out.println(pathAll);
-        System.out.println("in");
         List<Point> points = mapService.findAllPoint(Integer.parseInt(split[0]),Integer.parseInt(split[1]));
         List<Point> points_num = mapService.findSelfPoint(Integer.parseInt(split[0]),Integer.parseInt(split[1]),Integer.parseInt(split[2]));
         MapInfo info = new MapInfo();
         info.setPath(pathAll);
         info.setPoints(points);
         info.setPoints_num(points_num);
+        info.setMax(mapService.getMaxCount(Integer.parseInt(split[0]),Integer.parseInt(split[1]),Integer.parseInt(split[2])));
+        System.out.println(info);
         return info;
 
     }
