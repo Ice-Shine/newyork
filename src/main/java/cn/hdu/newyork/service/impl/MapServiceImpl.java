@@ -1,5 +1,6 @@
 package cn.hdu.newyork.service.impl;
 
+import cn.hdu.newyork.domain.LineStyle;
 import cn.hdu.newyork.domain.Path;
 import cn.hdu.newyork.domain.Point;
 import cn.hdu.newyork.service.MapService;
@@ -36,7 +37,7 @@ public class MapServiceImpl implements MapService {
                     path2.add(Double.parseDouble(country[3]));
                     coords.add(path);
                     coords.add(path2);
-                    Path path1 = new Path(coords,Integer.parseInt(country[4]));
+                    Path path1 = new Path(coords,new LineStyle(Double.parseDouble(country[4])/4),Integer.parseInt(country[4]));
                     list.add(path1);
                 }
 

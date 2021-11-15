@@ -9,8 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Path {
-    private List<List<Double>> coords;
-    LineStyle lineStyle;
-    private Integer value;
+public class LineStyle {//线的属性设置
+    Double width;
+
 }
